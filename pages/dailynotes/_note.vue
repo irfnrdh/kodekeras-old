@@ -1,8 +1,15 @@
 <template>
   <main>
-    <section v-if="post">
-      <nav class="mb-8" aria-label="go back">
-        <router-back class="block" />
+    	<!--Title-->
+			<div class="font-sans">
+				<p class="text-base md:text-sm text-green-500 font-bold">&lt; <a href="#" class="text-base md:text-sm text-green-500 font-bold no-underline hover:underline">BACK TO DAILYNOTES  <router-back class="block" /></a></p>
+						<h1 class="font-bold font-sans break-normal text-gray-900 pt-6 pb-2 text-3xl md:text-4xl">{{ post.title }}</h1>
+						<p class="text-sm md:text-base font-normal text-gray-600"  v-if="post.createdAt">Published {{ formatDate(post.createdAt) }}</p>
+			</div>
+
+   
+       <nav class="mb-8" aria-label="go back">
+       
       </nav>
 
       <article>
@@ -14,12 +21,14 @@
         <p class="mt-1 mb-4 text-primary-600 dark:text-primary-400">{{ post.description }}</p>
         <nuxt-content :document="post" />
       </article>
-    </section>
   </main>
 </template>
 
 <script>
 export default {
+   layout (context) {
+    return 'blog'
+  },
   async asyncData({ $content, params, error }) {
     let post;
     try {

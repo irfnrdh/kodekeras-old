@@ -13,6 +13,9 @@
        <li class="flex-1 ml-2">
         <nuxt-link class="btn block" to="/dailynotes">Dailynotes</nuxt-link>
       </li>
+       <li class="flex-1 ml-2">
+        <nuxt-link class="btn block" to="/about">About</nuxt-link>
+      </li>
     </ul>
   </nav>
 </template>
